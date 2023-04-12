@@ -1,10 +1,6 @@
 import './bootstrap';
 import '../css/app.css';
 
-import.meta.glob([
-  '../images/**',
-]);
-
 import { createApp } from 'vue';
 
 const app = createApp({
