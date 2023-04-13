@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Cms\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,22 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+
+    Route::get('/admin', function () {
+        return view('admin.index');
+    });
+
+    Route::prefix('cms')->group(function () {
+        Route::get('/', function () {
+            return view('cms.index');
+        });
+    });
+
+    Route::resource('cms/pages', PageController::class);
+
+});
+
 
 require __DIR__.'/auth.php';
