@@ -6,14 +6,6 @@ import fs from 'fs';
 const host = 'failand.me';
 
 export default defineConfig({
-    server: {
-        host,
-        hmr: { host },
-        https: {
-            key: fs.readFileSync('./.cert/failand.me+3-key.pem'),
-            cert: fs.readFileSync('./.cert/failand.me+3.pem'),
-        },
-    },
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],

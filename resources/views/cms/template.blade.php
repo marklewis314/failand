@@ -9,9 +9,11 @@
   @vite('resources/js/app.js')
 </head>
 <body class="bg-violet-700">
-<div id="app" class="container mx-auto border min-h-screen bg-white">
-    <h1 class="text-4xl text-green-700 text-center">@yield('title')</h1>
-    @yield('content')
+<div id="app" class="max-w-screen-lg mx-auto border min-h-screen bg-white">
+    <h1 class="text-4xl text-center">@yield('title')</h1>
+    <div class="p-4">
+        @yield('content')
+    </div>
 </div>
 </body>
 </html>

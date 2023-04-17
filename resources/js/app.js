@@ -15,5 +15,7 @@ const app = createApp({
 
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
+import ConfirmDelete from './components/ConfirmDelete.vue';
+app.component('confirm-delete', ConfirmDelete);
 
 window.app = app.mount('#app');

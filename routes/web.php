@@ -15,9 +15,7 @@ use App\Http\Controllers\Cms\PageController;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PageController::class, 'home']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,5 +43,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 });
 
-
 require __DIR__.'/auth.php';
+
+//Goes last
+Route::get('{id}', [PageController::class, 'section']);
+Route::get('{id}/{id2}', [PageController::class, 'show']);
