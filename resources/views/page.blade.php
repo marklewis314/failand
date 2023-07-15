@@ -6,15 +6,16 @@
 
 @section('content')
    
-<div class="my-4">
+<div class="">
 @if($page->image)
-<img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="">
+<img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="md:w-1/2 mb-4 rounded-lg">
 @endif
-
+<div class="">
 {!! nl2br($page->content) !!}
 </div>
+</div>
 
-<p><a href="/{{ $page->section->slug }}" class="text-lg hover:underline">&lArr; All {{ $page->section->title }}</a></p>
+<p class="my-4"><a href="/{{ $page->section->slug }}" class="text-lg hover:underline">&lArr; All {{ $page->section->title }}</a></p>
 
 @endsection
 

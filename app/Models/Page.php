@@ -27,4 +27,22 @@ class Page extends Model
     {
         return $this->section->slug . '/' . $this->slug ;
     }
+
+    public function rankOptions($rank1)
+    {
+        $pages = self::orderBy('rank')->get();
+        $rank = 1;
+        $selected = ($rank == $rank1) ? 'selected' : '';
+        $options = "<option value=\"$rank\" $selected>$rank. ==TOP==</option>";;
+        $prev = '';
+        foreach ($pages as $page) {
+            if ($page->rank != $this->rank) {
+                $rank++;
+                $selected = ($rank == $rank1) ? 'selected' : '';
+                $options .= "<option value=\"$rank\" $selected>$rank. AFTER $page->title</option>";
+            }
+        }
+        return $options;
+    }
+
 }

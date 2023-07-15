@@ -17,5 +17,7 @@ import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 import ConfirmDelete from './components/ConfirmDelete.vue';
 app.component('confirm-delete', ConfirmDelete);
+import ALink from './components/ALink.vue';
+app.component('a-link', ALink);
 
 window.app = app.mount('#app');

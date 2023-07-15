@@ -15,7 +15,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        $pages = Page::orderBy('slug')->get();
+        $pages = Page::orderBy('rank')->get();
         return view('cms.pages.index')->with('pages', $pages);
     }
 
@@ -25,7 +25,8 @@ class PageController extends Controller
     public function create()
     {
         $page = new Page;
-        $page->rank = 1;
+        $page->rank = 0;
+        $page->section_id = 1;
         return view('cms.pages.edit')->with('page', $page);
     }
 
@@ -50,8 +51,9 @@ class PageController extends Controller
             $page->image = '';
         }
         $page->alt = $request->alt ?? '';
-        $page->section = $request->section ?? '';
-        $page->rank = $request->rank ?? 1;
+        $page->section_id = $request->section_id;
+        Page::where('rank', '>=', $request->rank)->increment('rank');
+        $page->rank = $request->rank;
         $page->save();
 
         return redirect()->route('pages.index');
@@ -113,7 +115,12 @@ class PageController extends Controller
         }
         $page->alt = $request->alt ?? '';
         $page->section_id = $request->section_id;
-        $page->rank = $request->rank ?? 1;
+        if ($request->rank < $page->rank) {
+            Page::whereBetween('rank', [$request->rank, $page->rank - 1])->increment('rank');
+        } elseif ($request->rank > $page->rank) {
+            Page::whereBetween('rank', [$page->rank + 1, $request->rank])->decrement('rank');
+        }
+        $page->rank = $request->rank;
         $page->save();
 
         return redirect()->route('pages.index');
@@ -125,7 +132,9 @@ class PageController extends Controller
     public function destroy(string $id)
     {
         $page = Page::findOrFail($id);
+        $rank = $page->rank;
         $page->delete();
+        Page::where('rank', '>', $rank)->decrement('rank');
         return redirect()->route('pages.index');
     }
 }
