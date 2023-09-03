@@ -27,7 +27,11 @@ class Page extends Model
 
     public function fullSlug() 
     {
-        return $this->section->slug . '/' . $this->slug ;
+        if ($this->section->slug) {
+            return $this->section->slug . '/' . $this->slug;
+        } else {
+            return $this->slug;
+        }
     }
 
     public function rankOptions($rank1)

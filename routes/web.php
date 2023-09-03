@@ -17,6 +17,7 @@ use App\Http\Controllers\Cms\PageController;
 
 Route::get('/', [PageController::class, 'home']);
 Route::get('/search', [PageController::class, 'search']);
+Route::post('/contact', [PageController::class, 'contact']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Cms;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Page;
 use App\Models\Section;
+use App\Mail\Contact;
 
 class PageController extends Controller
 {
@@ -76,7 +78,8 @@ class PageController extends Controller
             return view('section')->with('section', $section);
         }
         $page = Page::where('section_id', 1)->where('slug', $id)->firstOrFail();
-        return view('page')->with('page', $page);
+        $view = in_array($id, ['contact']) ? $id : 'page';
+        return view($view)->with('page', $page);
     }
 
     public function home()
@@ -92,6 +95,14 @@ class PageController extends Controller
         $pages = Page::where('title', 'like', "%$q%")->orWhere('abstract', 'like', "%$q%")->orWhere('content', 'like', "%$q%")->orderBy('rank')->get();
         $section = new Section;
         return view('search')->with('section', $section)->with('pages', $pages)->with('q', $request->q);
+    }
+
+    public function contact(Request $request)
+    {
+        //dd($request->all());
+        $r = Mail::to(config('mail.admin'))->send(new Contact($request));
+        //dd($r);
+        return redirect('contact')->with('sent', true);
     }
 
     /**
