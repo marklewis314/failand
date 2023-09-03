@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .content a {
+        @apply text-lime-700 hover:underline;
+    }
+}

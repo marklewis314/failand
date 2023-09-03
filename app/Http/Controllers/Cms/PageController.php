@@ -71,8 +71,12 @@ class PageController extends Controller
 
     public function section(string $id)
     {
-        $section = Section::where('slug', $id)->firstOrFail();
-        return view('section')->with('section', $section);
+        $section = Section::where('slug', $id)->first();
+        if ($section) {
+            return view('section')->with('section', $section);
+        }
+        $page = Page::where('section_id', 1)->where('slug', $id)->firstOrFail();
+        return view('page')->with('page', $page);
     }
 
     public function home()
@@ -80,6 +84,14 @@ class PageController extends Controller
         $section = Section::findOrFail(1);
         $pages = Page::orderBy('rank')->get();
         return view('home')->with('section', $section)->with('pages', $pages);
+    }
+
+    public function search(Request $request)
+    {
+        $q = $request->q;
+        $pages = Page::where('title', 'like', "%$q%")->orWhere('abstract', 'like', "%$q%")->orWhere('content', 'like', "%$q%")->orderBy('rank')->get();
+        $section = new Section;
+        return view('search')->with('section', $section)->with('pages', $pages)->with('q', $request->q);
     }
 
     /**
@@ -137,4 +149,5 @@ class PageController extends Controller
         Page::where('rank', '>', $rank)->decrement('rank');
         return redirect()->route('pages.index');
     }
+
 }

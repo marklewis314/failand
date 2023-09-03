@@ -18,7 +18,9 @@ class Page extends Model
     public function path() 
     {
         $path = '<a href="/" class="hover:underline">Home</a>  &gt; ';
-        $path .= "<a href=\"/{$this->section->slug}\" class=\"hover:underline\">{$this->section->title}</a>  &gt ";
+        if ($this->section_id > 1) {
+            $path .= "<a href=\"/{$this->section->slug}\" class=\"hover:underline\">{$this->section->title}</a>  &gt ";
+        }
         $path .= $this->title;
         return $path;
     }

@@ -23,25 +23,31 @@
 
     <div class="flex flex-col md:flex-row p-4">
  
-        <main class="md:w-3/5 mx-auto md:min-h-screen">            
+        <main class="md:w-3/5 md:min-h-screen">
             @yield('content')
         </main>
 
         <aside class="md:w-1/5 md:order-first">
-            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-2">Left aside</div>
-            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-2">Left aside 2</div>
+            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4">
+                <form action="/search">
+                    <input type="text" name="q" placeholder="Search...">
+                </form>
+            </div>
         </aside>
 
         <aside class="md:w-1/5">
-            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-2">@include('parish-council')</div>
-            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-2">@include('recycle-dates')</div>
+            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4">@include('parish-council')</div>
+            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4">@include('recycle-dates')</div>
         </aside>
 
     </div>
 
     <footer class="bg-lime-700 text-white h-48">
         <div class="md:w-3/5 mx-auto p-4">
-            Footer
+            <nav class="flex flex-col space-y-2">
+                <a href="/about" class="hover:underline">About</a>
+                <a href="/contact" class="hover:underline">Contact</a>
+            </nav>
         </div>
     </footer>
 </div>
