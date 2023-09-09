@@ -67,8 +67,8 @@
     </div>
 
     <div class="mt-4 flex space-x-1">
-        <button type="submit" class="inline-block bg-violet-500 hover:bg-violet-700 text-white px-4 py-2 rounded">@if($page->title) Update @else Add @endif</button>
-        <a class="inline-block bg-gray-500 hover:bg-gray-700 text-white px-4 py-2 rounded" href="{{ route('pages.index') }}">Cancel</a>
+        <button type="submit" class="inline-block bg-lime-700 hover:bg-lime-600 text-white px-4 py-2 rounded">@if($page->title) Update @else Add @endif</button>
+        <a class="inline-block bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded" href="{{ route('pages.index') }}">Cancel</a>
     </div>
 
 </form>

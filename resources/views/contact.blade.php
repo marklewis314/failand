@@ -17,7 +17,17 @@
 
 @else
 
-<form method="POST" class="grid grid-cols-1 md:w-1/2">
+@if ($errors->any())
+    <div class="mb-4">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li class="text-red-500">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form method="POST" class="grid grid-cols-1 md:w-1/2" id="contact-form">
     @csrf
     <label for="name">Name</label>
     <input type="text" name="name" value="{{ old('name') }}" id="name">
@@ -26,7 +36,10 @@
     <label for="message" class="mt-2">Message</label>
     <textarea name="message" id="message" rows="8">{{ old('mesage') }}</textarea>
     <div class="mt-4">
-        <button type="submit" class="bg-lime-700 text-white px-4 py-1.5 rounded">Send</button>
+        <button type="submit" class="bg-lime-700 text-white px-4 py-1.5 rounded g-recaptcha" 
+            data-sitekey="{{ config('services.recaptcha.key') }}" 
+            data-callback='onSubmit' 
+            data-action='submit'>Send</button>
         <a href="/" class="bg-stone-400 text-white px-4 py-2 rounded ml-2">Cancel</a>
     </div>
 </form>
@@ -38,6 +51,15 @@
 <p class="my-4"><a href="/{{ $page->section->slug }}" class="text-lg hover:underline">&lArr; @if($page->section->id > 1)All @endif {{ $page->section->title }}</a></p>
 
 @endsection
+
+@push('foot')
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+function onSubmit(token) {
+    document.getElementById("contact-form").submit();
+}
+</script>
+@endpush
 
 
 

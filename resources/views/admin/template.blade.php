@@ -8,8 +8,8 @@
   <link rel="icon" type="image/x-icon" href="/images/signpost.svg">
   @vite('resources/js/app.js')
 </head>
-<body class="bg-gray-700">
-<div id="app" class="container mx-auto border min-h-screen bg-white">
+<body class="bg-green-700">
+<div id="app" class="container mx-auto border w-3/5 min-h-screen bg-white p-4">
     <h1 class="text-4xl text-green-700 text-center">@yield('title')</h1>
     @yield('content')
 </div>

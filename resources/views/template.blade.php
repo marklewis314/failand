@@ -21,9 +21,9 @@
     
     <nav class="md:w-3/5 mx-auto pl-4 md:pl-2 text-lime-700 text-lg">@yield('path')</nav>
 
-    <div class="flex flex-col md:flex-row p-4">
+    <div class="flex flex-col md:flex-row p-3">
  
-        <main class="md:w-3/5 md:min-h-screen">
+        <main class="md:w-3/5 md:min-h-screen mb-4">
             @yield('content')
         </main>
 
@@ -45,11 +45,12 @@
     <footer class="bg-lime-700 text-white h-48">
         <div class="md:w-3/5 mx-auto p-4">
             <nav class="flex flex-col space-y-2">
-                <a href="/about" class="hover:underline">About</a>
-                <a href="/contact" class="hover:underline">Contact</a>
+                <a href="/about" class="text-lg hover:underline">About</a>
+                <a href="/contact" class="text-lg hover:underline">Contact</a>
             </nav>
         </div>
     </footer>
 </div>
+@stack('foot')
 </body>
 </html>

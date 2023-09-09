@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\Page;
 use App\Models\Section;
 use App\Mail\Contact;
+use App\Rules\Recaptcha;
 
 class PageController extends Controller
 {
@@ -99,6 +100,12 @@ class PageController extends Controller
 
     public function contact(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+            'g-recaptcha-response' => ['required', new Recaptcha]
+        ]);
         //dd($request->all());
         $r = Mail::to(config('mail.admin'))->send(new Contact($request));
         //dd($r);

@@ -4,11 +4,12 @@
 
 @section('content')
 
-<div class="p-4">
-<a href="/" class="block hover:underline">Main site</a>
-<a href="/admin" class="block hover:underline">Admin</a>
+<div class="mb-4">
 <a href="/cms/pages" class="block hover:underline">Pages</a>
 </div>
+
+<a href="/admin" class="block hover:underline">&lArr; Admin</a>
+<a href="/" class="block hover:underline">&lArr; Main site</a>
 
 @endsection
 
