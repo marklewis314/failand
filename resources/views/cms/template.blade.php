@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Failand CMS">
-  <title>@yield('title')</title>
+  <title>Failand CMS - @yield('title')</title>
   <link rel="icon" type="image/x-icon" href="/images/signpost.svg">
   @vite('resources/js/app.js')
 </head>

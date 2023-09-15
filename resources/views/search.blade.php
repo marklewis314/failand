@@ -22,7 +22,14 @@
 
 @else
 
-<div class="p-2">No results.</div>
+<div class="p-2">
+
+No results.
+
+<div class="py-2"><a href="/" class="text-lg hover:underline">&lArr; Home</a></div>
+
+</div>
+
 
 @endif
 

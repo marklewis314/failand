@@ -10,7 +10,7 @@
 @foreach($section->pages as $page)
 <a href="/{{ $page->fullSlug() }}" class="p-4 shadow-lg border">
     <img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="">
-    <h2 class="text-xl mb-2">{{ $page->title }}</h2>
+    <h2 class="text-xl my-2">{{ $page->title }}</h2>
     {!! $page->abstract !!}    
 </a>
 @endforeach

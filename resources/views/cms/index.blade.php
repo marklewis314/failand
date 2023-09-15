@@ -1,6 +1,6 @@
 @extends('cms.template')
 
-@section('title', 'Failand CMS')
+@section('title', 'Home')
 
 @section('content')
 
