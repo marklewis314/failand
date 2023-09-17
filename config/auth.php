@@ -112,4 +112,6 @@ return [
 
     'password_timeout' => 10800,
 
+    'ip' => env('AUTH_IP', '127.0.0.1'),
+
 ];
