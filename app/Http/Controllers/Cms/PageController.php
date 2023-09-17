@@ -137,6 +137,7 @@ class PageController extends Controller
         $page->title = $request->title;
         $page->abstract = $request->abstract ?? '';
         $page->content = $request->content ?? '';
+
         if ($request->has('delimage') or $request->hasFile('image')) {
             Storage::disk('public')->delete($page->image);
         }
@@ -144,6 +145,7 @@ class PageController extends Controller
             $page->image = $request->image->storeAs('images', $request->image->getClientOriginalName(), 'public');
         }
         $page->alt = $request->alt ?? '';
+        $page->imgTag();
         $page->section_id = $request->section_id;
         if ($request->rank < $page->rank) {
             Page::whereBetween('rank', [$request->rank, $page->rank - 1])->increment('rank');

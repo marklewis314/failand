@@ -51,4 +51,18 @@ class Page extends Model
         return $options;
     }
 
+    public function imgTag()
+    {
+        $content = $this->content;
+        if (preg_match('#[^/](images/[-\w]+\.\w+)#', $content, $matches)) {
+            foreach ($matches as $match) {
+                $image = Image::where('image', $match)->first();
+                if ($image) {
+                    $content = str_replace($match, "<img src=\"/$match\" alt=\"$image->alt\">", $content);
+                }
+            }
+            $this->content = $content;
+        }
+    }
+
 }

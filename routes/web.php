@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Cms\PageController;
+use App\Http\Controllers\Cms\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     });
 
     Route::resource('cms/pages', PageController::class);
+    Route::resource('cms/images', ImageController::class);
 
 });
 
