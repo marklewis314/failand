@@ -1,8 +1,7 @@
 <h2 class="text-xl mb-2">Recycle Dates</h2>
 
 <ul>
-<li class="opacity-25">Tuesday 12 September -  <span class="text-lime-700">Green Bin</span></li>
-<li>Tuesday 19 September -  Black Bin</li>
-<li>Tuesday 26 September -  <span class="text-lime-700">Green Bin</span></li>
-<li>Tuesday 3 October -  Black Bin</li>
+@foreach (App\Classes\BinDay::upcoming() as $binday)
+<li @if($binday->date->isPast())class="opacity-25"@endif>{{ $binday->date->format('l j F') }} - @if($binday->type == 'black') Black Bin @else <span class="text-lime-700">Green Bin</span> @endif</li>
+@endforeach
 </ul>
