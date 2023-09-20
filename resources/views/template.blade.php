@@ -37,7 +37,7 @@
 
         <aside class="md:w-1/5">
             <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4">@include('parish-council')</div>
-            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4">@include('recycle-dates')</div>
+            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4"><bin-days></bin-days></div>
         </aside>
 
     </div>

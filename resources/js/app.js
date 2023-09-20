@@ -19,5 +19,7 @@ import ConfirmDelete from './components/ConfirmDelete.vue';
 app.component('confirm-delete', ConfirmDelete);
 import ALink from './components/ALink.vue';
 app.component('a-link', ALink);
+import BinDays from './components/BinDays.vue';
+app.component('bin-days', BinDays);
 
 window.app = app.mount('#app');
