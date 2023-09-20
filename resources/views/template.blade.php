@@ -47,6 +47,7 @@
             <nav class="flex flex-col space-y-2">
                 <a href="/about" class="text-lg hover:underline">About</a>
                 <a href="/contact" class="text-lg hover:underline">Contact</a>
+                <a href="https://www.bbc.co.uk/weather/8063560" class="text-lg hover:underline" target="weather">BBC Weather for Failand</a>
             </nav>
         </div>
     </footer>
