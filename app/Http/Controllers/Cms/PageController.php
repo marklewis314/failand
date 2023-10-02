@@ -145,6 +145,7 @@ class PageController extends Controller
             $page->image = $request->image->storeAs('images', $request->image->getClientOriginalName(), 'public');
         }
         $page->alt = $request->alt ?? '';
+        $page->urlTag();
         $page->imgTag();
         $page->section_id = $request->section_id;
         if ($request->rank < $page->rank) {

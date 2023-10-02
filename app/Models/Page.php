@@ -65,4 +65,9 @@ class Page extends Model
         }
     }
 
+    public function urlTag()
+    {
+        $this->content = preg_replace('#[^">](https?://[-\w\./]+)#', '<a href="\1" target="' . $this->section->slug . '">\1</a>', $this->content);
+    }
+
 }
