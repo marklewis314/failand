@@ -70,4 +70,14 @@ class Page extends Model
         $this->content = preg_replace('#[^">](https?://[-\w\./]+)#', '<a href="\1" target="' . $this->section->slug . '">\1</a>', $this->content);
     }
 
+    public function paras()
+    {
+        $this->content = preg_replace('/(.*)\r\n\r\n/', '<p>\1</p>' . "\r\n\r\n", $this->content);
+    }
+
+    public function xparas()
+    {
+       return preg_replace('#<p>(.*)</p>#', '\1', $this->content);
+    }
+
 }

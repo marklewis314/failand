@@ -11,7 +11,7 @@
 <img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="md:w-1/2 mb-4 rounded-lg">
 @endif
 <div class="content">
-{!! nl2br($page->content) !!}
+{!! $page->content !!}
 </div>
 </div>
 

@@ -43,7 +43,7 @@
     
     <div>
         <label for="content" class="font-bold">Content</label>
-        <div><textarea  name="content" id="content" placeholder="Content" class="form-textarea rounded" cols="80" rows="20">{{ old('content', $page->content) }}</textarea></div>
+        <div><textarea  name="content" id="content" placeholder="Content" class="form-textarea rounded" cols="80" rows="20">{{ old('content', $page->xparas()) }}</textarea></div>
     </div>
 
     <div>

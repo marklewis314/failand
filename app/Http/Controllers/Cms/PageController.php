@@ -147,6 +147,7 @@ class PageController extends Controller
         $page->alt = $request->alt ?? '';
         $page->urlTag();
         $page->imgTag();
+        $page->paras();
         $page->section_id = $request->section_id;
         if ($request->rank < $page->rank) {
             Page::whereBetween('rank', [$request->rank, $page->rank - 1])->increment('rank');
