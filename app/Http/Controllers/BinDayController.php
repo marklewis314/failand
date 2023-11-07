@@ -15,7 +15,8 @@ class BinDayController extends Controller
         $bindays = Binday::where('date', '>=', $date)->take(4)->get();
         $bindays->each(function ($binday) {
             $binday->datef = $binday->date->format('l j F');
-            $binday->past = $binday->date->isPast();
+            $binday->eod = $binday->date->setTime(19, 0);//collection day past at 7pm
+            $binday->past = $binday->eod->isPast();
         });
         return $bindays;
     }
