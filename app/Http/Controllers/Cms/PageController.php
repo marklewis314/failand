@@ -86,7 +86,7 @@ class PageController extends Controller
     public function home()
     {
         $section = Section::findOrFail(1);
-        $pages = Page::orderBy('rank')->get();
+        $pages = Page::whereNot('section_id', 1)->orderBy('rank')->get();
         return view('home')->with('section', $section)->with('pages', $pages);
     }
 

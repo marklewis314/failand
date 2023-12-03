@@ -45,9 +45,10 @@
     <footer class="bg-lime-700 text-white h-48">
         <div class="md:w-3/5 mx-auto p-4">
             <nav class="flex flex-col space-y-2">
-                <a href="/about" class="text-lg hover:underline">About</a>
-                <a href="/contact" class="text-lg hover:underline">Contact</a>
-                <a href="https://www.bbc.co.uk/weather/8063560" class="text-lg hover:underline" target="weather">BBC Weather for Failand</a>
+                @foreach (App\Models\Page::where('section_id', 1)->orderBy('rank')->get() as $page)
+                <a href="/{{ $page->slug }}" class="text-lg hover:underline">{{ $page->title }}</a>
+                @endforeach
+                <a href="https://www.bbc.co.uk/weather/8063560" class="text-lg hover:underline" target="weather">BBC Weather for Failand&#8663;</a>
             </nav>
         </div>
     </footer>
