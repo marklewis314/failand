@@ -12,9 +12,10 @@ class BinDayController extends Controller
     {
         $date = Carbon::now();
         $date->subWeek();
-        $bindays = Binday::where('date', '>=', $date)->take(4)->get();
+        $bindays = Binday::where('date', '>=', $date)->take(44)->get();
         $bindays->each(function ($binday) {
-            $binday->datef = $binday->date->format('l j F');
+            $binday->day = $binday->date->format('l');
+            $binday->datef = $binday->date->format('j F');
             $binday->eod = $binday->date->setTime(19, 0);//collection day past at 7pm
             $binday->past = $binday->eod->isPast();
         });
