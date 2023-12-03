@@ -2,7 +2,7 @@
 <h2 class="text-xl mb-2">Recycle Dates</h2>
 
 <ul v-for="binday in bindays">
-    <li :class="{ 'opacity-25': binday.past }">{{ binday.datef }} - <span v-if="binday.type == 'black'">Black Bin</span><span v-else class="text-lime-700">Green Bin</span></li>
+    <li :class="{ 'opacity-25': binday.past }">{{ binday.datef }} - <span v-if="binday.type == 'black'">Black Bin</span><span v-else-if="binday.type == 'green'" class="text-lime-700">Green Bin</span><span v-else>No Green Bin - boxes and caddy only</span></li>
 </ul>
 </template>
 
