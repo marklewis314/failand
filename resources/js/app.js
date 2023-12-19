@@ -21,5 +21,7 @@ import ALink from './components/ALink.vue';
 app.component('a-link', ALink);
 import BinDays from './components/BinDays.vue';
 app.component('bin-days', BinDays);
+import CouncilMeetings from './components/CouncilMeetings.vue';
+app.component('council-meetings', CouncilMeetings);
 
 window.app = app.mount('#app');

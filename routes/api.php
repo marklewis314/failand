@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BinDayController;
+use App\Http\Controllers\MeetingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,4 @@ Route::get('test', function (Request $request) {
 });
 
 Route::get('bin-days', [BinDayController::class, 'upcoming']);
+Route::get('council-meetings', [MeetingController::class, 'upcoming']);
