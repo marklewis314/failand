@@ -37,7 +37,7 @@
 
         <aside class="md:w-1/5">
             <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4"><council-meetings></council-meetings></div>
-            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4"><bin-days></bin-days></div>
+            <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4"><bin-days></bin-days>Green bin day has yet to be set for February</div>
         </aside>
 
     </div>
