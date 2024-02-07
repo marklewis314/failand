@@ -12,7 +12,9 @@ class BinDayController extends Controller
     {
         $date = Carbon::now();
         $date->subWeek();
-        $bindays = Binday::where('date', '>=', $date)->take(8)->get();
+        $date2 = Carbon::now();
+        $date2->addMonth();
+        $bindays = Binday::where('date', '>=', $date)->where('date', '<', $date2)->orderBy('date')->get();
         $bindays->each(function ($binday) {
             $binday->day = $binday->date->format('l');
             $binday->datef = $binday->date->format('j F');
