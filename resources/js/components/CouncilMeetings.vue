@@ -2,7 +2,7 @@
 <h2 class="text-xl mb-2">Parish Council Meetings</h2>
 
 <ul v-for="meeting in meetings">
-    <li :class="{ 'opacity-25': meeting.past }">{{ meeting.datef }} 
+    <li :class="{ 'opacity-25': meeting.past }" class="my-1"><span :class="{ 'font-bold': meeting.day != 'Thursday' }">{{ meeting.day }}</span> {{ meeting.datef }} at {{ meeting.time }}
     <span v-if="meeting.place == 'failand'">in Failand Village Hall</span>
     <span v-else-if="meeting.place == 'wraxall'">in the Cross Tree Centre behind Wraxall church</span>
     <span v-else-if="meeting.place == 'zoom'">via Zoom <span v-if="!meeting.past">(link at end of <a href="https://www.wraxallandfailand-pc.gov.uk/about-the-council/agendas-and-minutes" class="underline" target="agenda"> agenda</a>)</span></span>

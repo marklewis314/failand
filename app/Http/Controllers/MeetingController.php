@@ -14,7 +14,9 @@ class MeetingController extends Controller
         $date->subMonth();
         $meetings = Meeting::where('date', '>=', $date)->take(8)->get();
         $meetings->each(function ($meeting) {
-            $meeting->datef = $meeting->date->format('l j F Y \a\t g:ia');
+            $meeting->day = $meeting->date->format('l');
+            $meeting->datef = $meeting->date->format('j F');
+            $meeting->time = $meeting->date->format('g:ia');
             $meeting->eod = $meeting->date->setTime(23, 0);//meeting over at 11pm
             $meeting->past = $meeting->eod->isPast();
         });
