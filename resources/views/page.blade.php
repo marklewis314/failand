@@ -8,7 +8,7 @@
    
 <div class="">
 @if($page->image)
-<img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="md:w-1/2 mb-4 rounded-lg">
+<img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="mb-4 rounded-lg object-cover max-h-screen">
 @endif
 <div class="content">
 {!! $page->content !!}

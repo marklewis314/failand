@@ -67,12 +67,12 @@ class Page extends Model
 
     public function urlTag()
     {
-        $this->content = preg_replace('#[^">](https?://[-\w\./]+)#', '<a href="\1" target="' . $this->section->slug . '">\1</a>', $this->content);
+        $this->content = preg_replace('#(^|[^">])(https?://[-\w\./%]+)#', '<a href="\2" target="' . $this->section->slug . '">\2</a>', $this->content);
     }
 
     public function paras()
     {
-        $this->content = preg_replace('/(.*)\r\n\r\n/', '<p>\1</p>' . "\r\n\r\n", $this->content);
+        $this->content = preg_replace('/(.*)(\r\n\r\n|$)/', '<p>\1</p>' . "\r\n\r\n", $this->content);
     }
 
     public function xparas()

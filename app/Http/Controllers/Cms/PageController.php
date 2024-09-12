@@ -54,6 +54,9 @@ class PageController extends Controller
             $page->image = '';
         }
         $page->alt = $request->alt ?? '';
+        $page->urlTag();
+        $page->imgTag();
+        $page->paras();
         $page->section_id = $request->section_id;
         Page::where('rank', '>=', $request->rank)->increment('rank');
         $page->rank = $request->rank;
