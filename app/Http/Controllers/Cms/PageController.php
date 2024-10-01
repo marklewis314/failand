@@ -54,7 +54,7 @@ class PageController extends Controller
             $page->image = '';
         }
         $page->alt = $request->alt ?? '';
-        $page->urlTag();
+        //$page->urlTag();
         $page->imgTag();
         $page->paras();
         $page->section_id = $request->section_id;
