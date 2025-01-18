@@ -33,7 +33,7 @@ class Section extends Model
         $nav = '';
         foreach ($sections as $section) {
             $class = ($section->id == $this->id) ? 'underline' : 'hover:underline';
-            $nav .= "<a href=\"/$section->slug\" class=\"$class\">$section->title</a>";
+            $nav .= "<a href=\"/$section->slug\" class=\"decoration-lime-500 $class\">$section->title</a>";
         }
         return $nav;
     }
