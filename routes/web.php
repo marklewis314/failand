@@ -49,6 +49,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::view('/ken', 'ken');
+
 //Goes last
 Route::get('{id}', [PageController::class, 'section']);
 Route::get('{id}/{id2}', [PageController::class, 'show']);
