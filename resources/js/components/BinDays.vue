@@ -4,7 +4,7 @@
 <ul v-for="binday in bindays">
     <li :class="{ 'opacity-25': binday.past }"><span :class="{ 'font-bold': binday.day != 'Tuesday' }">{{ binday.day }}</span> {{ binday.datef }} - <span v-if="binday.type == 'black'">Black Bin</span><span v-else-if="binday.type == 'green'" class="text-lime-700">Green Bin</span><span v-else>Boxes and caddy</span></li>
 </ul>
-Green bin collection is now on Wednesday
+Starting 11 June collection is on Wednesday and black bin is 3-weekly
 </template>
 
 <script>
