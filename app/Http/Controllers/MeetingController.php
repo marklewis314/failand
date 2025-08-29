@@ -12,7 +12,7 @@ class MeetingController extends Controller
     {
         $date = Carbon::now();
         $date->subMonth();
-        $meetings = Meeting::where('date', '>=', $date)->take(8)->get();
+        $meetings = Meeting::where('date', '>=', $date)->orderBy('date')->take(8)->get();
         $meetings->each(function ($meeting) {
             $meeting->day = $meeting->date->format('l');
             $meeting->datef = $meeting->date->format('j F');
