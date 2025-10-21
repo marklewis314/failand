@@ -1,9 +1,9 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Failand Village Website">
+    <meta name="description" content="Website for the village of Failand in North Somerset with info on Planning, Broadband and Community events.">
     <title>Failand - @yield('title')</title>
     <link rel="icon" type="image/x-icon" href="/img/signpost.svg">
     @vite('resources/js/app.js')
