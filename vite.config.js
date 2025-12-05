@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import tailwindcss from "@tailwindcss/vite";
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import fs from 'fs';
@@ -29,6 +30,7 @@ export default defineConfig({
                 },
             },
         }),
+        tailwindcss(),
     ],
     resolve: {
         alias: {

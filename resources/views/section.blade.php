@@ -8,7 +8,7 @@
 
 <div class="grid md:grid-cols-3 gap-4">
 @foreach($section->pages as $page)
-<a href="/{{ $page->fullSlug() }}" class="p-4 shadow-lg border">
+<a href="/{{ $page->fullSlug() }}" class="p-4 shadow-lg rounded-lg border border-stone-300">
     <img src="/{{ $page->image }}" alt="{{ $page->alt }}" class="">
     <h2 class="text-xl my-2">{{ $page->title }}</h2>
     {!! $page->abstract !!}    
