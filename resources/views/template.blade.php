@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="/img/signpost.svg">
     @vite('resources/js/app.js')
 </head>
-<body>
+<body class="font-inter">
 <div id="app">
     <header class="md:w-3/5 mx-auto flex justify-between text-2xl decoration-4 underline-offset-4 p-4">
         <div><a href="/" class="flex space-x-2 text-4xl text-lime-700 hover:text-lime-600"><img src="/img/signpost.svg" alt="logo" class="w-8"><div>Failand</div></a></div>
