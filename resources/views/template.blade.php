@@ -30,7 +30,7 @@
         <aside class="md:w-1/5 md:order-first">
             <div class="bg-stone-300 p-4 rounded-lg mb-2 md:mx-4">
                 <form action="/search">
-                    <input type="text" name="q" placeholder="Search...">
+                    <input type="text" name="q" placeholder="Search..." class="focus:border-lime-600 focus:ring-lime-600">
                 </form>
             </div>
         </aside>

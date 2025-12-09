@@ -30,13 +30,13 @@
 <form method="POST" class="grid grid-cols-1 md:w-1/2" id="contact-form">
     @csrf
     <label for="name">Name</label>
-    <input type="text" name="name" value="{{ old('name') }}" id="name">
+    <input type="text" name="name" value="{{ old('name') }}" id="name" class="focus:border-lime-600 focus:ring-lime-600">
     <label for="email" class="mt-2">Email</label>
-    <input type="email" name="email" value="{{ old('email') }}" id="email">
+    <input type="email" name="email" value="{{ old('email') }}" id="email" class="focus:border-lime-600 focus:ring-lime-600">
     <label for="message" class="mt-2">Message</label>
-    <textarea name="message" id="message" rows="8">{{ old('mesage') }}</textarea>
+    <textarea name="message" id="message" rows="8" class="focus:border-lime-600 focus:ring-lime-600">{{ old('mesage') }}</textarea>
     <div class="mt-4">
-        <button type="submit" class="bg-lime-700 text-white px-4 py-1.5 rounded g-recaptcha" 
+        <button type="submit" class="bg-lime-700 text-white px-4 py-1.5 rounded g-recaptcha cursor-pointer" 
             data-sitekey="{{ config('services.recaptcha.key') }}" 
             data-callback='onSubmit' 
             data-action='submit'>Send</button>
