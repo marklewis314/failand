@@ -115,6 +115,11 @@ class PageController extends Controller
         return redirect('contact')->with('sent', true);
     }
 
+    public function flax()
+    {
+        return redirect('https://planning.n-somerset.gov.uk/online-applications/applicationDetails.do?activeTab=neighbourComments&keyVal=T7CZQILPMF000');
+    }
+
     /**
      * Show the form for editing the specified resource.
      */

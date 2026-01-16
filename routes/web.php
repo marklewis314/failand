@@ -19,6 +19,7 @@ use App\Http\Controllers\Cms\ImageController;
 Route::get('/', [PageController::class, 'home']);
 Route::get('/search', [PageController::class, 'search']);
 Route::post('/contact', [PageController::class, 'contact']);
+Route::get('/flax', [PageController::class, 'flax']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
